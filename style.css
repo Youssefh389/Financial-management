@@ -1,0 +1,457 @@
+/* إعادة تعيين الأنماط الافتراضية */
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+body {
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  background-color: #f0f2f5;
+
+  color: #333;
+
+  direction: rtl;
+
+  min-height: 100vh;
+
+}
+
+/* إعداد خلفيات الصفحات المتدرجة */
+
+.page {
+
+  display: none;
+
+  min-height: 100vh;
+
+  padding: 20px;
+
+  border-radius: 8px;
+
+}
+
+#page1.active {
+
+  display: block;
+
+  background: linear-gradient(135deg, #2980b9, #6dd5fa);
+
+}
+
+#page2.active {
+
+  display: block;
+
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+
+}
+
+#page3.active {
+
+  display: block;
+
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+
+}
+
+#page4.active {
+
+  display: block;
+
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+
+}
+
+.page.active {
+
+  animation: fadeIn 0.5s ease-in-out;
+
+}
+
+@keyframes fadeIn {
+
+  from { opacity: 0; }
+
+  to { opacity: 1; }
+
+}
+
+/* تنسيق الرأس header */
+
+header {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: #fff;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+.header-icon {
+
+  margin-bottom: 10px;
+
+}
+
+/* أزرار التنقل */
+
+.nav-btn,
+
+button {
+
+  background-color: rgba(255, 255, 255, 0.85);
+
+  color: #333;
+
+  border: none;
+
+  padding: 10px 20px;
+
+  margin: 5px;
+
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  transition: background 0.3s ease;
+
+}
+
+.nav-btn:hover,
+
+button:hover {
+
+  background-color: rgba(255, 255, 255, 1);
+
+}
+
+.nav-icon {
+
+  vertical-align: middle;
+
+  margin-left: 5px;
+
+}
+
+/* القائمة الرئيسية */
+
+.menu {
+
+  text-align: center;
+
+  margin: 20px 0;
+
+}
+
+/* مربعات الإحصائيات */
+
+.stats {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+
+}
+
+.stat-box {
+
+  border-radius: 8px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  flex: 1 1 250px;
+
+  color: #fff;
+
+  font-weight: bold;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+}
+
+/* إحصائيات المتحصلات */
+
+.stat-box.collections.daily {
+
+  background: linear-gradient(135deg, #1e8449, #28b463);
+
+}
+
+.stat-box.collections.weekly {
+
+  background: linear-gradient(135deg, #117a65, #16a085);
+
+}
+
+/* إحصائيات المصروفات */
+
+.stat-box.expenses.daily {
+
+  background: linear-gradient(135deg, #922b21, #c0392b);
+
+}
+
+.stat-box.expenses.weekly {
+
+  background: linear-gradient(135deg, #78281f, #a93226);
+
+}
+
+/* تنسيق الجداول */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+
+  background-color: rgba(255,255,255,0.9);
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+}
+
+table, th, td {
+
+  border: 1px solid #ddd;
+
+}
+
+th, td {
+
+  padding: 10px;
+
+  text-align: center;
+
+}
+
+/* عمود الإجراءات مع أيقونات صغيرة */
+
+td.actions {
+
+  width: 80px;
+
+  text-align: center;
+
+  vertical-align: middle;
+
+}
+
+td.actions button {
+
+  background: none;
+
+  border: none;
+
+  padding: 4px;
+
+  margin: 0 2px;
+
+  cursor: pointer;
+
+}
+
+td.actions button .icon {
+
+  width: 16px;
+
+  height: 16px;
+
+}
+
+/* تنسيق النماذج */
+
+.form-container {
+
+  background-color: rgba(255,255,255,0.95);
+
+  border: 1px solid #ddd;
+
+  padding: 15px;
+
+  margin: 15px 0;
+
+  border-radius: 8px;
+
+}
+
+.form-container.hidden {
+
+  display: none;
+
+}
+
+.form-container form label {
+
+  display: block;
+
+  margin: 10px 0;
+
+}
+
+.form-actions {
+
+  text-align: center;
+
+  margin-top: 10px;
+
+}
+
+/* صناديق الشهور السابقة */
+
+.months-container {
+
+  margin-top: 30px;
+
+  background-color: rgba(255,255,255,0.9);
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+}
+
+/* ترتيب الشهور عمودياً */
+
+.months {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  align-items: center;
+
+}
+
+/* صندوق شهر أنيق وصغير */
+
+.months .month-box {
+
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+
+  color: #fff;
+
+  padding: 5px 10px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  display: inline-flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  font-size: 0.9rem;
+
+}
+
+.months .month-box .month-icon {
+
+  margin-bottom: 3px;
+
+}
+
+/* أزرار الأسابيع داخل صندوق الشهر – تظهر بجانب بعضها */
+
+.weeks-container {
+
+  margin-top: 5px;
+
+  display: flex;
+
+  gap: 3px;
+
+  justify-content: center;
+
+  flex-wrap: nowrap;
+
+}
+
+.week-btn {
+
+  background-color: rgba(255, 255, 255, 0.8);
+
+  border: none;
+
+  padding: 3px 6px;
+
+  border-radius: 4px;
+
+  font-size: 0.8rem;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+
+}
+
+.week-btn:hover {
+
+  background-color: rgba(255, 255, 255, 1);
+
+}
+
+/* منطقة تفاصيل الأسبوع */
+
+.week-details {
+
+  background-color: rgba(255,255,255,0.95);
+
+  border: 1px solid #ddd;
+
+  padding: 15px;
+
+  margin-top: 20px;
+
+  border-radius: 8px;
+
+}
+
+.week-details.hidden {
+
+  display: none;
+
+}
+
+/* تنسيق الفوتر */
+
+footer {
+
+  margin-top: 20px;
+
+  text-align: center;
+
+}

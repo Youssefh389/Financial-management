@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>مالية عبده</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>إدارة مالية</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <!-- الصفحة 1: الرئيسية -->
+
+  <div id="page1" class="page active">
+
+    <header>
+
+      <div class="header-icon">
+
+        <!-- أيقونة المنزل -->
+
+        <svg width="32" height="32" viewbox="0 0 64 64" fill="currentColor">
+
+          <path d="M32 12l22 20h-6v20h-12v-12h-8v12h-12v-20h-6z"></path>
+
+        </svg>
+
+      </div>
+
+      <h1>إدارة مالية</h1>
+
+    </header>
+
+    <main>
+
+      <p>مرحباً بكم في التطبيق الاحترافي لإدارة المالية</p>
+
+      <div class="menu">
+
+        <button class="nav-btn" data-target="page2">
+
+          <span class="nav-icon">
+
+            <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+              <circle cx="32" cy="32" r="28"></circle>
+
+              <path d="M32 14v36M20 32h24" stroke="#333" stroke-width="4" stroke-linecap="round"></path>
+
+            </svg>
+
+          </span>
+
+          المتحصلات
+
+        </button>
+
+        <button class="nav-btn" data-target="page3">
+
+          <span class="nav-icon">
+
+            <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+              <rect x="12" y="20" width="40" height="24" rx="4" ry="4"></rect>
+
+              <path d="M52 28h6v8h-6z" fill="#333"></path>
+
+            </svg>
+
+          </span>
+
+          المصروفات
+
+        </button>
+
+        <button class="nav-btn" data-target="page4">
+
+          <span class="nav-icon">
+
+            <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+              <path d="M12 44h40v4h-40zM12 36h40v4h-40zM12 28h40v4h-40zM12 20h40v4h-40z"></path>
+
+            </svg>
+
+          </span>
+
+          صافي المتحصلات
+
+        </button>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- الصفحة 2: المتحصلات -->
+
+  <div id="page2" class="page">
+
+    <header>
+
+      <div class="header-icon">
+
+        <!-- أيقونة عملة -->
+
+        <svg width="32" height="32" viewbox="0 0 64 64" fill="currentColor">
+
+          <circle cx="32" cy="32" r="28"></circle>
+
+          <path d="M32 14v36M20 32h24" stroke="#fff" stroke-width="4" stroke-linecap="round"></path>
+
+        </svg>
+
+      </div>
+
+      <h1>المتحصلات</h1>
+
+    </header>
+
+    <main>
+
+      <!-- مربعات الإحصائيات -->
+
+      <div class="stats">
+
+        <div class="stat-box collections daily">
+
+          <h3>المتحصلات اليومية</h3>
+
+          <p id="dailyCollections">0.00</p>
+
+        </div>
+
+        <div class="stat-box collections weekly">
+
+          <h3>المتحصلات الأسبوعية</h3>
+
+          <p id="weeklyCollections">0.00</p>
+
+        </div>
+
+      </div>
+
+      <button id="addCollectionBtn">إضافة</button>
+
+      <!-- نموذج إضافة متحصل -->
+
+      <div id="collectionFormContainer" class="form-container hidden">
+
+        <form id="collectionForm">
+
+          <label>التاريخ:
+
+            <input type="text" id="collectionDate" readonly>
+
+          </label>
+
+          <label>الاسم:
+
+            <input type="text" id="collectionName" required>
+
+          </label>
+
+          <label>المبلغ:
+
+            <input type="number" id="collectionAmount" required>
+
+          </label>
+
+          <div class="form-actions">
+
+            <button type="submit">حفظ</button>
+
+            <button type="button" id="cancelCollection">إلغاء</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <table id="collectionsTable">
+
+        <thead>
+
+          <tr>
+
+            <th>التاريخ</th>
+
+            <th>الاسم</th>
+
+            <th>المبلغ</th>
+
+            <th class="actions">الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <!-- صفوف المتحصلات تُضاف ديناميكياً -->
+
+        </tbody>
+
+      </table>
+
+      <!-- صناديق الشهور السابقة -->
+
+      <div class="months-container">
+
+        <h2>الشهور الثلاثة السابقة</h2>
+
+        <div id="collectionsMonths" class="months">
+
+          <!-- تُنشأ ديناميكياً عبر script.js -->
+
+        </div>
+
+      </div>
+
+      <!-- منطقة عرض تفاصيل الأسبوع -->
+
+      <div id="collectionsWeekDetails" class="week-details hidden"></div>
+
+    </main>
+
+    <footer>
+
+      <button class="nav-btn" data-target="page1">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <path d="M32 12l22 20h-6v20h-12v-12h-8v12h-12v-20h-6z"></path>
+
+          </svg>
+
+        </span>
+
+        الرئيسية
+
+      </button>
+
+      <button class="nav-btn" data-target="page3">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <rect x="12" y="20" width="40" height="24" rx="4" ry="4"></rect>
+
+            <path d="M52 28h6v8h-6z" fill="#333"></path>
+
+          </svg>
+
+        </span>
+
+        المصروفات
+
+      </button>
+
+      <button class="nav-btn" data-target="page4">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <path d="M12 44h40v4h-40zM12 36h40v4h-40zM12 28h40v4h-40zM12 20h40v4h-40z"></path>
+
+          </svg>
+
+        </span>
+
+        صافي المتحصلات
+
+      </button>
+
+    </footer>
+
+  </div>
+
+  <!-- الصفحة 3: المصروفات -->
+
+  <div id="page3" class="page">
+
+    <header>
+
+      <div class="header-icon">
+
+        <!-- أيقونة محفظة -->
+
+        <svg width="32" height="32" viewbox="0 0 64 64" fill="currentColor">
+
+          <rect x="12" y="20" width="40" height="24" rx="4" ry="4"></rect>
+
+          <path d="M52 28h6v8h-6z" fill="#fff"></path>
+
+        </svg>
+
+      </div>
+
+      <h1>المصروفات</h1>
+
+    </header>
+
+    <main>
+
+      <div class="stats">
+
+        <div class="stat-box expenses daily">
+
+          <h3>المصروفات اليومية</h3>
+
+          <p id="dailyExpenses">0.00</p>
+
+        </div>
+
+        <div class="stat-box expenses weekly">
+
+          <h3>المصروفات الأسبوعية</h3>
+
+          <p id="weeklyExpenses">0.00</p>
+
+        </div>
+
+      </div>
+
+      <button id="addExpenseBtn">إضافة</button>
+
+      <!-- نموذج إضافة مصروف -->
+
+      <div id="expenseFormContainer" class="form-container hidden">
+
+        <form id="expenseForm">
+
+          <label>التاريخ:
+
+            <input type="text" id="expenseDate" readonly>
+
+          </label>
+
+          <label>السبب:
+
+            <input type="text" id="expenseReason" required>
+
+          </label>
+
+          <label>المبلغ:
+
+            <input type="number" id="expenseAmount" required>
+
+          </label>
+
+          <div class="form-actions">
+
+            <button type="submit">حفظ</button>
+
+            <button type="button" id="cancelExpense">إلغاء</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <table id="expensesTable">
+
+        <thead>
+
+          <tr>
+
+            <th>التاريخ</th>
+
+            <th>السبب</th>
+
+            <th>المبلغ</th>
+
+            <th class="actions">الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <!-- صفوف المصروفات تُضاف ديناميكياً -->
+
+        </tbody>
+
+      </table>
+
+      <div class="months-container">
+
+        <h2>الشهور الثلاثة السابقة</h2>
+
+        <div id="expensesMonths" class="months">
+
+          <!-- تُنشأ ديناميكياً -->
+
+        </div>
+
+      </div>
+
+      <div id="expensesWeekDetails" class="week-details hidden"></div>
+
+    </main>
+
+    <footer>
+
+      <button class="nav-btn" data-target="page1">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <path d="M32 12l22 20h-6v20h-12v-12h-8v12h-12v-20h-6z"></path>
+
+          </svg>
+
+        </span>
+
+        الرئيسية
+
+      </button>
+
+      <button class="nav-btn" data-target="page2">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <circle cx="32" cy="32" r="28"></circle>
+
+            <path d="M32 14v36M20 32h24" stroke="#333" stroke-width="4" stroke-linecap="round"></path>
+
+          </svg>
+
+        </span>
+
+        المتحصلات
+
+      </button>
+
+      <button class="nav-btn" data-target="page4">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <path d="M12 44h40v4h-40zM12 36h40v4h-40zM12 28h40v4h-40zM12 20h40v4h-40z"></path>
+
+          </svg>
+
+        </span>
+
+        صافي المتحصلات
+
+      </button>
+
+    </footer>
+
+  </div>
+
+  <!-- الصفحة 4: صافي المتحصلات -->
+
+  <div id="page4" class="page">
+
+    <header>
+
+      <div class="header-icon">
+
+        <!-- أيقونة توازن -->
+
+        <svg width="32" height="32" viewbox="0 0 64 64" fill="currentColor">
+
+          <path d="M12 44h40v4h-40zM12 36h40v4h-40zM12 28h40v4h-40zM12 20h40v4h-40z"></path>
+
+        </svg>
+
+      </div>
+
+      <h1>صافي المتحصلات</h1>
+
+    </header>
+
+    <main>
+
+      <table id="netCollectionsTable">
+
+        <thead>
+
+          <tr>
+
+            <th>التاريخ</th>
+
+            <th>إجمالي المصروفات</th>
+
+            <th>إجمالي المتحصلات</th>
+
+            <th>صافي المتحصلات</th>
+
+            <th class="actions">الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <!-- بيانات صافي المتحصلات تُحسب وتُعرض -->
+
+        </tbody>
+
+      </table>
+
+      <div class="months-container">
+
+        <h2>الشهور الثلاثة السابقة</h2>
+
+        <div id="netMonths" class="months">
+
+          <!-- تُنشأ ديناميكياً -->
+
+        </div>
+
+      </div>
+
+      <div id="netWeekDetails" class="week-details hidden"></div>
+
+    </main>
+
+    <footer>
+
+      <button class="nav-btn" data-target="page1">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <path d="M32 12l22 20h-6v20h-12v-12h-8v12h-12v-20h-6z"></path>
+
+          </svg>
+
+        </span>
+
+        الرئيسية
+
+      </button>
+
+      <button class="nav-btn" data-target="page2">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <circle cx="32" cy="32" r="28"></circle>
+
+            <path d="M32 14v36M20 32h24" stroke="#333" stroke-width="4" stroke-linecap="round"></path>
+
+          </svg>
+
+        </span>
+
+        المتحصلات
+
+      </button>
+
+      <button class="nav-btn" data-target="page3">
+
+        <span class="nav-icon">
+
+          <svg width="16" height="16" viewbox="0 0 64 64" fill="currentColor">
+
+            <rect x="12" y="20" width="40" height="24" rx="4" ry="4"></rect>
+
+            <path d="M52 28h6v8h-6z" fill="#333"></path>
+
+          </svg>
+
+        </span>
+
+        المصروفات
+
+      </button>
+
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
